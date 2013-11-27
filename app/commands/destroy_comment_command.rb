@@ -1,0 +1,1 @@
+DestroyCommentCommand = ActiveModel :id

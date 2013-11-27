@@ -1,0 +1,23 @@
+h1= @post.title
+
+p= @post.body
+
+ul
+  li= link_to "Edit", edit_post_path(@post.id)
+
+h2 Comments
+
+- @post.comments.each do |comment|
+  p
+    =' comment.body
+    | [
+    = link_to "&times;".html_safe, comment_path(comment.id), method: :delete
+    | ]
+
+h3 New comment
+= form_for @comment_command, as: :command, url: comments_path, method: :post do |f|
+  = f.hidden_field :post_id, value: @post.id
+  div= f.label :body
+  div= f.text_area :body
+
+  div= f.submit 'Comment'

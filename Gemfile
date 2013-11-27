@@ -49,3 +49,4 @@ group :development, :test do
 end
 
 gem 'its-it'
+gem 'slim'

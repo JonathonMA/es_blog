@@ -1,0 +1,11 @@
+= form_for @command, as: :command, url: post_path(@command.id), method: :put do |f|
+  = f.hidden_field :original_version
+
+  div= f.label :title
+  div= f.text_field :title
+
+
+  div= f.label :body
+  div= f.text_area :body
+
+  div= f.submit 'Submit'

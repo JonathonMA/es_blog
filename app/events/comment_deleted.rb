@@ -1,0 +1,1 @@
+CommentDeleted = Event :id
