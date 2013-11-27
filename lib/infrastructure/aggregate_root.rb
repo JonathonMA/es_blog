@@ -13,7 +13,10 @@ class AggregateRoot
   end
 
   def load_from_history(events)
-    events.each(&its.apply_change(event, false))
+    events.each do |event|
+      apply_change event, false
+    end
+    @version = events.last.version
   end
 
   def apply_change(event, new = true)

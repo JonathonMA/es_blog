@@ -1,4 +1,6 @@
 class Repository
+  attr_reader :storage
+
   def initialize(storage = HashEventStore.new(EventBus))
     @storage = storage
   end
@@ -7,6 +9,11 @@ class Repository
     @storage.save_events aggregate.id,
                          aggregate.uncommitted_changes,
                          expected_version
+  end
+
+  # XXX: replay spike
+  def all_events
+    @storage.current
   end
 
   def get(klass, id)

@@ -8,3 +8,5 @@
 ).each do |file|
   require_relative "infrastructure/#{file}"
 end
+
+require 'sugar'
