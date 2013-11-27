@@ -5,14 +5,15 @@ p= @post.body
 ul
   li= link_to "Edit", edit_post_path(@post.id)
 
-h2 Comments
+- unless @post.comments.empty?
+  h2 Comments
 
-- @post.comments.each do |comment|
-  p
-    =' comment.body
-    | [
-    = link_to "&times;".html_safe, comment_path(comment.id), method: :delete
-    | ]
+  - @post.comments.each do |comment|
+    p
+      =' comment.body
+      | [
+      = link_to "&times;".html_safe, comment_path(comment.id), method: :delete
+      | ]
 
 h3 New comment
 = form_for @comment_command, as: :command, url: comments_path, method: :post do |f|

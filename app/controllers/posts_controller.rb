@@ -1,6 +1,10 @@
 # XXX: Where does UUID generation sit?
 
 class PostsController < ApplicationController
+  def index
+    @posts = PostReport.posts
+  end
+
   def new
     @command = CreatePostCommand.new
   end

@@ -7,5 +7,10 @@ class BullShitDatabase
     def details
       @details ||= {}
     end
+
+    def clear
+      @list = []
+      @details = {}
+    end
   end
 end

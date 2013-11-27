@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
   def load_event_storage
     CommandHandlers.repository = Repository.new HashEventStore.new(EventBus, persisted_event_hash)
     # XXX: Listner needs to be loaded all the time and stuff.
+    BullShitDatabase.clear
     PostReport.private_replay(CommandHandlers.repository)
   end
 
